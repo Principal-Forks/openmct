@@ -139,7 +139,7 @@
     {
       "id": "testing-and-examples",
       "title": "Testing & Example Plugins",
-      "description": "e2e/ has Playwright tests covering visual regression and accessibility. example/ provides sample plugins (generators, imagery, fault sources) that serve as both dev tools and documentation for building your own plugins.",
+      "description": "The e2e/ directory has Playwright tests covering visual regression and accessibility. The example/ directory provides sample plugins (generators, imagery, fault sources) that serve as both dev tools and documentation for building your own plugins.",
       "focusDirectory": "",
       "colorMode": "fileTypes",
       "highlightLayers": [
