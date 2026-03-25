@@ -1,0 +1,176 @@
+{
+  "id": "openmct-introduction",
+  "title": "Open MCT: Mission Control Framework",
+  "description": "Discover how NASA's Open MCT builds extensible mission control interfaces through domain objects, telemetry, and a plugin architecture.",
+  "version": "1.0.0",
+  "steps": [
+    {
+      "id": "welcome",
+      "title": "Open MCT at a Glance",
+      "description": "Open MCT is NASA's extensible web framework for building mission control UIs. MCT.js is the heart - it wires together 15+ APIs (telemetry, time, objects) and a Vue-based UI into a single configurable application.",
+      "focusDirectory": "src",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "entry-point",
+          "name": "Application Core",
+          "color": "#ef4444",
+          "items": [
+            { "path": "src/MCT.js", "type": "file" },
+            { "path": "openmct.js", "type": "file" }
+          ],
+          "opacity": 0.8,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "api-layer",
+      "title": "The API Layer: Domain-Driven Design",
+      "description": "Each API encapsulates a core mission control concept. TelemetryAPI handles real-time data streams via WebSockets. ObjectAPI manages domain objects with persistence and search. TimeAPI controls time bounds, clocks, and conductor state.",
+      "focusDirectory": "src/api",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "core-apis",
+          "name": "Core APIs",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "src/api/telemetry", "type": "directory" },
+            { "path": "src/api/objects", "type": "directory" },
+            { "path": "src/api/time", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "interaction-apis",
+          "name": "Interaction APIs",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "src/api/actions", "type": "directory" },
+            { "path": "src/api/composition", "type": "directory" },
+            { "path": "src/api/notifications", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "hover-directory",
+          "description": "Hover over telemetry to see real-time data handling",
+          "target": "src/api/telemetry"
+        }
+      ]
+    },
+    {
+      "id": "plugin-system",
+      "title": "Plugin Architecture: 50+ Built-in Plugins",
+      "description": "Everything is a plugin - plots, tables, clocks, notebooks, gauges. plugins.js registers them all. Each plugin folder is self-contained with its own views, actions, and object types, making Open MCT endlessly extensible.",
+      "focusDirectory": "src/plugins",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "visualization-plugins",
+          "name": "Visualization",
+          "color": "#8b5cf6",
+          "items": [
+            { "path": "src/plugins/plot", "type": "directory" },
+            { "path": "src/plugins/charts", "type": "directory" },
+            { "path": "src/plugins/gauge", "type": "directory" },
+            { "path": "src/plugins/imagery", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "layout-plugins",
+          "name": "Layout & Composition",
+          "color": "#10b981",
+          "items": [
+            { "path": "src/plugins/displayLayout", "type": "directory" },
+            { "path": "src/plugins/flexibleLayout", "type": "directory" },
+            { "path": "src/plugins/tabs", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "Click to see how plugins are registered",
+          "target": "src/plugins/plugins.js"
+        }
+      ]
+    },
+    {
+      "id": "ui-layer",
+      "title": "Vue-Powered UI Shell",
+      "description": "The UI layer provides the application shell - layout, routing, inspector panel, toolbar, and view registries. Browse.js handles navigation. Components are Vue-based with composables for shared logic like search and resize.",
+      "focusDirectory": "src/ui",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "ui-shell",
+          "name": "App Shell",
+          "color": "#06b6d4",
+          "items": [
+            { "path": "src/ui/layout", "type": "directory" },
+            { "path": "src/ui/router", "type": "directory" },
+            { "path": "src/ui/inspector", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "ui-registries",
+          "name": "View Registries",
+          "color": "#f43f5e",
+          "items": [
+            { "path": "src/ui/registries", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "testing-and-examples",
+      "title": "Testing & Example Plugins",
+      "description": "e2e/ has Playwright tests covering visual regression and accessibility. example/ provides sample plugins (generators, imagery, fault sources) that serve as both dev tools and documentation for building your own plugins.",
+      "focusDirectory": "",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "testing",
+          "name": "End-to-End Tests",
+          "color": "#22c55e",
+          "items": [
+            { "path": "e2e", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "examples",
+          "name": "Example Plugins",
+          "color": "#f97316",
+          "items": [
+            { "path": "example", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "explore",
+          "description": "Explore example plugins for reference implementations",
+          "target": "example"
+        }
+      ]
+    }
+  ]
+}
