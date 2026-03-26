@@ -171,6 +171,56 @@
           "target": "example"
         }
       ]
+    },
+    {
+      "id": "summary",
+      "title": "Putting It All Together",
+      "description": "Open MCT's power comes from its layered architecture: MCT.js bootstraps the application, the API layer provides domain-driven services for telemetry, objects, and time, 50+ plugins deliver visualization and interaction capabilities, and the Vue UI shell ties it all together. To get started, explore the example plugins, check out the e2e tests for usage patterns, and refer to the API documentation for building your own extensions.",
+      "focusDirectory": "",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "core",
+          "name": "Application Core",
+          "color": "#ef4444",
+          "items": [
+            { "path": "src/MCT.js", "type": "file" },
+            { "path": "openmct.js", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "apis",
+          "name": "API Layer",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "src/api", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "plugins",
+          "name": "Plugins",
+          "color": "#8b5cf6",
+          "items": [
+            { "path": "src/plugins", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "ui",
+          "name": "UI Shell",
+          "color": "#06b6d4",
+          "items": [
+            { "path": "src/ui", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
     }
   ]
 }
