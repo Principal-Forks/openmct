@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "canvas": ".principal-views/view-rendering/view-rendering.otel.canvas",
+  "name": "View Rendering",
+  "description": "View provider matching, selection, and rendering for domain objects",
+  "spanPattern": "openmct.view.render",
+  "status": "draft",
+  "scenarioSelection": "first-match",
+  "scenarios": [
+    {
+      "id": "render-success-single",
+      "priority": 1,
+      "description": "Single view provider matched and rendered successfully",
+      "template": {
+        "events": {
+          "view.match.started": "Finding view for {{object.type}} {{object.identifier}}",
+          "view.providers.evaluated": "Evaluated {{providers.count}} providers, {{providers.matched}} matched",
+          "view.provider.selected": "Selected {{provider.name}} (priority: {{provider.priority}})",
+          "view.component.created": "Created {{component.name}} component ({{component.type}})",
+          "view.mounted": "View mounted in {{duration.ms}}ms"
+        },
+        "summary": "Rendered {{object.type}} with {{provider.name}} in {{duration.ms}}ms"
+      }
+    },
+    {
+      "id": "render-no-providers",
+      "priority": 2,
+      "description": "No view providers matched the object",
+      "template": {
+        "events": {
+          "view.match.started": "Finding view for {{object.type}} {{object.identifier}}",
+          "view.providers.evaluated": "Evaluated {{providers.count}} providers",
+          "view.no.providers": "No providers matched {{object.type}} (evaluated {{providers.evaluated}} providers)"
+        },
+        "summary": "No view available for {{object.type}}"
+      }
+    },
+    {
+      "id": "render-failure",
+      "priority": 3,
+      "description": "View rendering failed after provider selection",
+      "template": {
+        "events": {
+          "view.match.started": "Finding view for {{object.type}}",
+          "view.providers.evaluated": "Evaluated providers",
+          "view.provider.selected": "Selected {{provider.name}}",
+          "view.component.created": "Creating component",
+          "view.render.failed": "Rendering failed: {{error.message}} ({{error.type}})"
+        },
+        "summary": "Failed to render {{object.type}}: {{error.message}}"
+      }
+    }
+  ]
+}

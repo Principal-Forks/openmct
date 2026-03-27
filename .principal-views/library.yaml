@@ -251,3 +251,279 @@ edgeComponents:
     label: "contains"
     description: "Contains or composes"
     color: "#16A085"
+
+eventSchemas:
+  # Object Operations Events
+  object.save.started:
+    description: "Object save operation initiated"
+    attributes:
+      object.identifier:
+        type: string
+        description: "Unique identifier of the object being saved"
+      object.type:
+        type: string
+        description: "Type of the domain object"
+      operation:
+        type: string
+        description: "Type of operation (create, update)"
+
+  object.provider.called:
+    description: "Persistence provider invoked"
+    attributes:
+      provider.name:
+        type: string
+        description: "Name of the persistence provider"
+      provider.namespace:
+        type: string
+        description: "Namespace handled by the provider"
+
+  object.save.completed:
+    description: "Object successfully saved"
+    attributes:
+      object.identifier:
+        type: string
+        description: "Identifier of the saved object"
+      duration.ms:
+        type: number
+        description: "Time taken to save in milliseconds"
+
+  object.save.failed:
+    description: "Object save operation failed"
+    attributes:
+      error.type:
+        type: string
+        description: "Type of error encountered"
+      error.message:
+        type: string
+        description: "Error message describing the failure"
+
+  # Telemetry Events
+  telemetry.request.started:
+    description: "Telemetry data request initiated"
+    attributes:
+      object.identifier:
+        type: string
+        description: "Identifier of telemetry object"
+      time.start:
+        type: number
+        description: "Start time of requested data range"
+      time.end:
+        type: number
+        description: "End time of requested data range"
+      request.type:
+        type: string
+        description: "Type of telemetry request"
+
+  telemetry.provider.queried:
+    description: "Telemetry provider queried for data"
+    attributes:
+      provider.name:
+        type: string
+        description: "Name of telemetry provider"
+      provider.type:
+        type: string
+        description: "Type of telemetry provider"
+
+  telemetry.data.received:
+    description: "Telemetry data received from provider"
+    attributes:
+      data.points:
+        type: number
+        description: "Number of data points received"
+      data.bytes:
+        type: number
+        description: "Size of data in bytes"
+
+  telemetry.format.applied:
+    description: "Data formatted for display"
+    attributes:
+      formatter.name:
+        type: string
+        description: "Name of the formatter used"
+      format.type:
+        type: string
+        description: "Type of format applied"
+
+  telemetry.request.completed:
+    description: "Telemetry request completed successfully"
+    attributes:
+      duration.ms:
+        type: number
+        description: "Request duration in milliseconds"
+      points.count:
+        type: number
+        description: "Total points retrieved"
+
+  telemetry.request.failed:
+    description: "Telemetry request failed"
+    attributes:
+      error.type:
+        type: string
+        description: "Type of error"
+      error.message:
+        type: string
+        description: "Error message"
+
+  telemetry.subscribe.started:
+    description: "Real-time telemetry subscription initiated"
+    attributes:
+      object.identifier:
+        type: string
+        description: "Identifier of subscribed object"
+      subscription.type:
+        type: string
+        description: "Type of subscription"
+
+  telemetry.data.streaming:
+    description: "Real-time telemetry data received"
+    attributes:
+      data.point:
+        type: object
+        description: "Received data point"
+      timestamp:
+        type: number
+        description: "Timestamp of data point"
+
+  # Plugin Lifecycle Events
+  plugin.install.started:
+    description: "Plugin installation initiated"
+    attributes:
+      plugin.name:
+        type: string
+        description: "Name of the plugin being installed"
+      plugin.type:
+        type: string
+        description: "Type/category of plugin"
+      plugin.options:
+        type: object
+        description: "Plugin configuration options"
+
+  plugin.types.registered:
+    description: "Object types registered by plugin"
+    attributes:
+      types.count:
+        type: number
+        description: "Number of types registered"
+      types.names:
+        type: array
+        description: "Names of registered types"
+
+  plugin.views.registered:
+    description: "View providers registered by plugin"
+    attributes:
+      views.count:
+        type: number
+        description: "Number of view providers registered"
+      views.names:
+        type: array
+        description: "Names of registered views"
+
+  plugin.providers.registered:
+    description: "Providers registered by plugin"
+    attributes:
+      providers.count:
+        type: number
+        description: "Number of providers registered"
+      providers.types:
+        type: array
+        description: "Types of providers registered"
+
+  plugin.install.completed:
+    description: "Plugin successfully installed"
+    attributes:
+      duration.ms:
+        type: number
+        description: "Installation duration in milliseconds"
+      registrations.total:
+        type: number
+        description: "Total number of registrations made"
+
+  plugin.install.failed:
+    description: "Plugin installation failed"
+    attributes:
+      error.type:
+        type: string
+        description: "Type of error"
+      error.message:
+        type: string
+        description: "Error message"
+      error.stack:
+        type: string
+        description: "Error stack trace"
+
+  # View Rendering Events
+  view.match.started:
+    description: "View provider matching initiated"
+    attributes:
+      object.identifier:
+        type: string
+        description: "Identifier of object to render"
+      object.type:
+        type: string
+        description: "Type of object"
+
+  view.providers.evaluated:
+    description: "View providers evaluated for compatibility"
+    attributes:
+      providers.count:
+        type: number
+        description: "Total providers evaluated"
+      providers.matched:
+        type: number
+        description: "Number of matching providers"
+      providers.names:
+        type: array
+        description: "Names of matching providers"
+
+  view.provider.selected:
+    description: "View provider selected based on priority"
+    attributes:
+      provider.name:
+        type: string
+        description: "Name of selected provider"
+      provider.priority:
+        type: number
+        description: "Priority value of selected provider"
+      provider.key:
+        type: string
+        description: "Unique key of the provider"
+
+  view.component.created:
+    description: "Vue component created for view"
+    attributes:
+      component.name:
+        type: string
+        description: "Name of the Vue component"
+      component.type:
+        type: string
+        description: "Type of component"
+
+  view.mounted:
+    description: "View successfully mounted in DOM"
+    attributes:
+      duration.ms:
+        type: number
+        description: "Time to mount in milliseconds"
+      element.id:
+        type: string
+        description: "DOM element ID where view is mounted"
+
+  view.no.providers:
+    description: "No view providers matched object"
+    attributes:
+      object.type:
+        type: string
+        description: "Type of object with no matching providers"
+      providers.evaluated:
+        type: number
+        description: "Number of providers evaluated"
+
+  view.render.failed:
+    description: "View rendering failed"
+    attributes:
+      error.type:
+        type: string
+        description: "Type of error"
+      error.message:
+        type: string
+        description: "Error message"

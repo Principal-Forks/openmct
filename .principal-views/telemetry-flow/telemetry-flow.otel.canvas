@@ -1,0 +1,182 @@
+{
+  "pv": {
+    "version": "1.0.0",
+    "name": "Telemetry Data Flow",
+    "description": "Telemetry request, subscription, and formatting workflow",
+    "markdown": ".principal-views/telemetry-flow/telemetry-flow.md"
+  },
+  "nodes": [
+    {
+      "id": "event-1",
+      "type": "otel-event",
+      "x": 100,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Request Started",
+      "eventRef": "telemetry.request.started",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-2",
+      "type": "otel-event",
+      "x": 400,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Provider Queried",
+      "eventRef": "telemetry.provider.queried",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-3",
+      "type": "otel-event",
+      "x": 700,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Data Received",
+      "eventRef": "telemetry.data.received",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-4",
+      "type": "otel-event",
+      "x": 1000,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Format Applied",
+      "eventRef": "telemetry.format.applied",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-5",
+      "type": "otel-event",
+      "x": 1300,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Request Completed",
+      "eventRef": "telemetry.request.completed",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-6",
+      "type": "otel-event",
+      "x": 700,
+      "y": 350,
+      "width": 200,
+      "height": 100,
+      "label": "Request Failed",
+      "eventRef": "telemetry.request.failed",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-7",
+      "type": "otel-event",
+      "x": 100,
+      "y": 500,
+      "width": 200,
+      "height": 100,
+      "label": "Subscribe Started",
+      "eventRef": "telemetry.subscribe.started",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-8",
+      "type": "otel-event",
+      "x": 400,
+      "y": 500,
+      "width": 200,
+      "height": 100,
+      "label": "Data Streaming",
+      "eventRef": "telemetry.data.streaming",
+      "otel": {
+        "status": "draft"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "event-1",
+      "toNode": "event-2",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "query",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "event-2",
+      "toNode": "event-3",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "data",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "event-3",
+      "toNode": "event-4",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "format",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "event-4",
+      "toNode": "event-5",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "complete",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-5",
+      "fromNode": "event-2",
+      "toNode": "event-6",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "error",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-6",
+      "fromNode": "event-7",
+      "toNode": "event-8",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "stream",
+      "pv": {
+        "edgeType": "uses"
+      }
+    }
+  ]
+}

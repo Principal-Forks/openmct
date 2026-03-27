@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "canvas": ".principal-views/plugin-lifecycle/plugin-lifecycle.otel.canvas",
+  "name": "Plugin Lifecycle",
+  "description": "Plugin installation, registration, and initialization",
+  "spanPattern": "openmct.plugin.install",
+  "status": "draft",
+  "scenarioSelection": "first-match",
+  "scenarios": [
+    {
+      "id": "install-success-full",
+      "priority": 1,
+      "description": "Plugin successfully installed with types, views, and providers",
+      "template": {
+        "events": {
+          "plugin.install.started": "Installing {{plugin.name}} plugin ({{plugin.type}})",
+          "plugin.types.registered": "Registered {{types.count}} object types: {{#each types.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+          "plugin.views.registered": "Registered {{views.count}} view providers: {{#each views.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+          "plugin.providers.registered": "Registered {{providers.count}} providers: {{#each providers.types}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+          "plugin.install.completed": "Plugin installed in {{duration.ms}}ms ({{registrations.total}} total registrations)"
+        },
+        "summary": "Installed {{plugin.name}} with {{registrations.total}} registrations in {{duration.ms}}ms"
+      }
+    },
+    {
+      "id": "install-failure",
+      "priority": 2,
+      "description": "Plugin installation failed",
+      "template": {
+        "events": {
+          "plugin.install.started": "Installing {{plugin.name}} plugin",
+          "plugin.install.failed": "Installation failed: {{error.message}}"
+        },
+        "summary": "Failed to install {{plugin.name}}: {{error.message}}"
+      }
+    }
+  ]
+}

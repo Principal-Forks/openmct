@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "canvas": ".principal-views/object-operations/object-operations.otel.canvas",
+  "name": "Object Operations",
+  "description": "Domain object create, read, update, and delete operations via the Object API",
+  "spanPattern": "openmct.object.save",
+  "status": "draft",
+  "scenarioSelection": "first-match",
+  "scenarios": [
+    {
+      "id": "save-success",
+      "priority": 1,
+      "description": "Object successfully saved to persistence layer",
+      "template": {
+        "events": {
+          "object.save.started": "Saving {{object.type}} object {{object.identifier}}",
+          "object.provider.called": "Using {{provider.name}} provider ({{provider.namespace}})",
+          "object.save.completed": "Save completed in {{duration.ms}}ms"
+        },
+        "summary": "Saved {{object.type}} {{object.identifier}} via {{provider.name}}"
+      }
+    },
+    {
+      "id": "save-failure",
+      "priority": 2,
+      "description": "Object save operation failed",
+      "template": {
+        "events": {
+          "object.save.started": "Saving {{object.type}} object {{object.identifier}}",
+          "object.provider.called": "Using {{provider.name}} provider ({{provider.namespace}})",
+          "object.save.failed": "Save failed: {{error.message}} ({{error.type}})"
+        },
+        "summary": "Failed to save {{object.type}} {{object.identifier}}: {{error.message}}"
+      }
+    }
+  ]
+}

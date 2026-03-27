@@ -1,0 +1,145 @@
+{
+  "pv": {
+    "version": "1.0.0",
+    "name": "Plugin Lifecycle",
+    "description": "Plugin installation and initialization workflow",
+    "markdown": ".principal-views/plugin-lifecycle/plugin-lifecycle.md"
+  },
+  "nodes": [
+    {
+      "id": "event-1",
+      "type": "otel-event",
+      "x": 100,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Install Started",
+      "eventRef": "plugin.install.started",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-2",
+      "type": "otel-event",
+      "x": 400,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Types Registered",
+      "eventRef": "plugin.types.registered",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-3",
+      "type": "otel-event",
+      "x": 700,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Views Registered",
+      "eventRef": "plugin.views.registered",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-4",
+      "type": "otel-event",
+      "x": 1000,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Providers Registered",
+      "eventRef": "plugin.providers.registered",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-5",
+      "type": "otel-event",
+      "x": 1300,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Install Completed",
+      "eventRef": "plugin.install.completed",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-6",
+      "type": "otel-event",
+      "x": 700,
+      "y": 350,
+      "width": 200,
+      "height": 100,
+      "label": "Install Failed",
+      "eventRef": "plugin.install.failed",
+      "otel": {
+        "status": "draft"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "event-1",
+      "toNode": "event-2",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "register types",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "event-2",
+      "toNode": "event-3",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "register views",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "event-3",
+      "toNode": "event-4",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "register providers",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "event-4",
+      "toNode": "event-5",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "complete",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-5",
+      "fromNode": "event-3",
+      "toNode": "event-6",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "error",
+      "pv": {
+        "edgeType": "uses"
+      }
+    }
+  ]
+}

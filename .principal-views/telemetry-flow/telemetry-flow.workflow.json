@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "canvas": ".principal-views/telemetry-flow/telemetry-flow.otel.canvas",
+  "name": "Telemetry Data Flow",
+  "description": "Requesting, subscribing to, and formatting telemetry data via the Telemetry API",
+  "spanPattern": "openmct.telemetry.request",
+  "status": "draft",
+  "scenarioSelection": "first-match",
+  "scenarios": [
+    {
+      "id": "request-success",
+      "priority": 1,
+      "description": "Historical telemetry data successfully retrieved and formatted",
+      "template": {
+        "events": {
+          "telemetry.request.started": "Requesting telemetry for {{object.identifier}} ({{time.start}} to {{time.end}})",
+          "telemetry.provider.queried": "Querying {{provider.name}} provider ({{provider.type}})",
+          "telemetry.data.received": "Received {{data.points}} data points ({{data.bytes}} bytes)",
+          "telemetry.format.applied": "Applied {{formatter.name}} formatter ({{format.type}})",
+          "telemetry.request.completed": "Request completed in {{duration.ms}}ms - {{points.count}} points"
+        },
+        "summary": "Retrieved {{points.count}} telemetry points in {{duration.ms}}ms"
+      }
+    },
+    {
+      "id": "request-failure",
+      "priority": 2,
+      "description": "Telemetry request failed",
+      "template": {
+        "events": {
+          "telemetry.request.started": "Requesting telemetry for {{object.identifier}}",
+          "telemetry.provider.queried": "Querying {{provider.name}} provider",
+          "telemetry.request.failed": "Request failed: {{error.message}} ({{error.type}})"
+        },
+        "summary": "Telemetry request failed: {{error.message}}"
+      }
+    },
+    {
+      "id": "subscription-realtime",
+      "priority": 3,
+      "description": "Real-time telemetry subscription active",
+      "template": {
+        "events": {
+          "telemetry.subscribe.started": "Subscribing to real-time data for {{object.identifier}} ({{subscription.type}})",
+          "telemetry.data.streaming": "Received data point at {{timestamp}}"
+        },
+        "summary": "Real-time subscription active for {{object.identifier}}"
+      }
+    }
+  ]
+}

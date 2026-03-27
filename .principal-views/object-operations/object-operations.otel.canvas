@@ -1,0 +1,97 @@
+{
+  "pv": {
+    "version": "1.0.0",
+    "name": "Object Operations",
+    "description": "Domain object CRUD operations workflow",
+    "markdown": ".principal-views/object-operations/object-operations.md"
+  },
+  "nodes": [
+    {
+      "id": "event-1",
+      "type": "otel-event",
+      "x": 100,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Save Started",
+      "eventRef": "object.save.started",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-2",
+      "type": "otel-event",
+      "x": 400,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Provider Called",
+      "eventRef": "object.provider.called",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-3",
+      "type": "otel-event",
+      "x": 400,
+      "y": 350,
+      "width": 200,
+      "height": 100,
+      "label": "Save Failed",
+      "eventRef": "object.save.failed",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-4",
+      "type": "otel-event",
+      "x": 700,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Save Completed",
+      "eventRef": "object.save.completed",
+      "otel": {
+        "status": "draft"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "event-1",
+      "toNode": "event-2",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "invoke provider",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "event-2",
+      "toNode": "event-4",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "success",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "event-2",
+      "toNode": "event-3",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "failure",
+      "pv": {
+        "edgeType": "uses"
+      }
+    }
+  ]
+}

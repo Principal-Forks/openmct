@@ -1,0 +1,169 @@
+{
+  "pv": {
+    "version": "1.0.0",
+    "name": "View Rendering",
+    "description": "View provider selection and rendering workflow",
+    "markdown": ".principal-views/view-rendering/view-rendering.md"
+  },
+  "nodes": [
+    {
+      "id": "event-1",
+      "type": "otel-event",
+      "x": 100,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Match Started",
+      "eventRef": "view.match.started",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-2",
+      "type": "otel-event",
+      "x": 400,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Providers Evaluated",
+      "eventRef": "view.providers.evaluated",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-3",
+      "type": "otel-event",
+      "x": 700,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Provider Selected",
+      "eventRef": "view.provider.selected",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-4",
+      "type": "otel-event",
+      "x": 1000,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "Component Created",
+      "eventRef": "view.component.created",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-5",
+      "type": "otel-event",
+      "x": 1300,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "label": "View Mounted",
+      "eventRef": "view.mounted",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-6",
+      "type": "otel-event",
+      "x": 400,
+      "y": 350,
+      "width": 200,
+      "height": 100,
+      "label": "No Providers",
+      "eventRef": "view.no.providers",
+      "otel": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "event-7",
+      "type": "otel-event",
+      "x": 1000,
+      "y": 350,
+      "width": 200,
+      "height": 100,
+      "label": "Render Failed",
+      "eventRef": "view.render.failed",
+      "otel": {
+        "status": "draft"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "event-1",
+      "toNode": "event-2",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "evaluate",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "event-2",
+      "toNode": "event-3",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "select",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "event-3",
+      "toNode": "event-4",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "create",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "event-4",
+      "toNode": "event-5",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "mount",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-5",
+      "fromNode": "event-2",
+      "toNode": "event-6",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "no match",
+      "pv": {
+        "edgeType": "uses"
+      }
+    },
+    {
+      "id": "edge-6",
+      "fromNode": "event-4",
+      "toNode": "event-7",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "error",
+      "pv": {
+        "edgeType": "uses"
+      }
+    }
+  ]
+}
