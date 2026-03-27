@@ -1,8 +1,112 @@
 {
   "pv": {
     "version": "1.0.0",
-    "name": "OpenMCT Span Conventions"
+    "name": "OpenMCT Span Conventions",
+    "description": "Span naming hierarchy organized by domain"
   },
+  "nodes": [
+    {
+      "id": "header-object",
+      "type": "text",
+      "x": 100,
+      "y": 100,
+      "width": 300,
+      "height": 60,
+      "text": "Object Operations",
+      "color": "#4A90E2"
+    },
+    {
+      "id": "span-object-save",
+      "type": "text",
+      "x": 120,
+      "y": 180,
+      "width": 260,
+      "height": 80,
+      "text": "openmct.object.save\n\nDomain object save operation",
+      "color": "#E8F4FD"
+    },
+    {
+      "id": "span-object-get",
+      "type": "text",
+      "x": 120,
+      "y": 280,
+      "width": 260,
+      "height": 80,
+      "text": "openmct.object.get\n\nDomain object retrieval operation",
+      "color": "#E8F4FD"
+    },
+    {
+      "id": "header-telemetry",
+      "type": "text",
+      "x": 500,
+      "y": 100,
+      "width": 300,
+      "height": 60,
+      "text": "Telemetry Operations",
+      "color": "#27AE60"
+    },
+    {
+      "id": "span-telemetry-request",
+      "type": "text",
+      "x": 520,
+      "y": 180,
+      "width": 260,
+      "height": 80,
+      "text": "openmct.telemetry.request\n\nHistorical telemetry data request",
+      "color": "#E8F8F0"
+    },
+    {
+      "id": "span-telemetry-subscribe",
+      "type": "text",
+      "x": 520,
+      "y": 280,
+      "width": 260,
+      "height": 80,
+      "text": "openmct.telemetry.subscribe\n\nReal-time telemetry subscription",
+      "color": "#E8F8F0"
+    },
+    {
+      "id": "header-plugin",
+      "type": "text",
+      "x": 100,
+      "y": 420,
+      "width": 300,
+      "height": 60,
+      "text": "Plugin Operations",
+      "color": "#F39C12"
+    },
+    {
+      "id": "span-plugin-install",
+      "type": "text",
+      "x": 120,
+      "y": 500,
+      "width": 260,
+      "height": 80,
+      "text": "openmct.plugin.install\n\nPlugin installation and initialization",
+      "color": "#FEF5E7"
+    },
+    {
+      "id": "header-view",
+      "type": "text",
+      "x": 500,
+      "y": 420,
+      "width": 300,
+      "height": 60,
+      "text": "View Operations",
+      "color": "#9B59B6"
+    },
+    {
+      "id": "span-view-render",
+      "type": "text",
+      "x": 520,
+      "y": 500,
+      "width": 260,
+      "height": 80,
+      "text": "openmct.view.render\n\nView provider selection and component rendering",
+      "color": "#F4ECF7"
+    }
+  ],
+  "edges": [],
   "spans": [
     {
       "name": "openmct.object.save",
