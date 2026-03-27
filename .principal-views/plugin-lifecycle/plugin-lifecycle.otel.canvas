@@ -14,6 +14,7 @@
       "width": 200,
       "height": 100,
       "label": "Install Started",
+      "color": "#4A90E2",
       "eventRef": "plugin.install.started",
       "otel": {
         "status": "draft"
@@ -27,6 +28,7 @@
       "width": 200,
       "height": 100,
       "label": "Types Registered",
+      "color": "#4A90E2",
       "eventRef": "plugin.types.registered",
       "otel": {
         "status": "draft"
@@ -40,6 +42,7 @@
       "width": 200,
       "height": 100,
       "label": "Views Registered",
+      "color": "#4A90E2",
       "eventRef": "plugin.views.registered",
       "otel": {
         "status": "draft"
@@ -53,6 +56,7 @@
       "width": 200,
       "height": 100,
       "label": "Providers Registered",
+      "color": "#4A90E2",
       "eventRef": "plugin.providers.registered",
       "otel": {
         "status": "draft"
@@ -66,6 +70,7 @@
       "width": 200,
       "height": 100,
       "label": "Install Completed",
+      "color": "#27AE60",
       "eventRef": "plugin.install.completed",
       "otel": {
         "status": "draft"
@@ -79,6 +84,7 @@
       "width": 200,
       "height": 100,
       "label": "Install Failed",
+      "color": "#E74C3C",
       "eventRef": "plugin.install.failed",
       "otel": {
         "status": "draft"
