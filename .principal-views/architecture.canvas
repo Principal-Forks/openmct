@@ -1,0 +1,642 @@
+{
+  "pv": {
+    "version": "1.0.0",
+    "name": "OpenMCT Architecture",
+    "markdown": ".principal-views/architecture.md"
+  },
+  "nodes": [
+    {
+      "id": "mct-core-1",
+      "type": "text",
+      "x": 500,
+      "y": 400,
+      "width": 150,
+      "height": 80,
+      "text": "MCT Core",
+      "pv": {
+        "nodeType": "mct-core",
+        "references": ["src/MCT.js"]
+      }
+    },
+    {
+      "id": "object-api-1",
+      "type": "text",
+      "x": 200,
+      "y": 200,
+      "width": 150,
+      "height": 80,
+      "text": "Object API",
+      "pv": {
+        "nodeType": "object-api",
+        "references": ["src/api/objects/"]
+      }
+    },
+    {
+      "id": "telemetry-api-1",
+      "type": "text",
+      "x": 350,
+      "y": 200,
+      "width": 150,
+      "height": 80,
+      "text": "Telemetry API",
+      "pv": {
+        "nodeType": "telemetry-api",
+        "references": ["src/api/telemetry/"]
+      }
+    },
+    {
+      "id": "composition-api-1",
+      "type": "text",
+      "x": 500,
+      "y": 200,
+      "width": 150,
+      "height": 80,
+      "text": "Composition API",
+      "pv": {
+        "nodeType": "composition-api",
+        "references": ["src/api/composition/"]
+      }
+    },
+    {
+      "id": "time-api-1",
+      "type": "text",
+      "x": 650,
+      "y": 200,
+      "width": 150,
+      "height": 80,
+      "text": "Time API",
+      "pv": {
+        "nodeType": "time-api",
+        "references": ["src/api/time/"]
+      }
+    },
+    {
+      "id": "actions-api-1",
+      "type": "text",
+      "x": 800,
+      "y": 200,
+      "width": 150,
+      "height": 80,
+      "text": "Actions API",
+      "pv": {
+        "nodeType": "actions-api",
+        "references": ["src/api/actions/"]
+      }
+    },
+    {
+      "id": "view-registry-1",
+      "type": "text",
+      "x": 200,
+      "y": 550,
+      "width": 150,
+      "height": 80,
+      "text": "View Registry",
+      "pv": {
+        "nodeType": "view-registry",
+        "references": ["src/ui/registries/ViewRegistry.js"]
+      }
+    },
+    {
+      "id": "type-registry-1",
+      "type": "text",
+      "x": 350,
+      "y": 550,
+      "width": 150,
+      "height": 80,
+      "text": "Type Registry",
+      "pv": {
+        "nodeType": "type-registry",
+        "references": ["src/api/types/"]
+      }
+    },
+    {
+      "id": "toolbar-registry-1",
+      "type": "text",
+      "x": 500,
+      "y": 550,
+      "width": 150,
+      "height": 80,
+      "text": "Toolbar Registry",
+      "pv": {
+        "nodeType": "toolbar-registry",
+        "references": ["src/ui/registries/ToolbarRegistry.js"]
+      }
+    },
+    {
+      "id": "inspector-registry-1",
+      "type": "text",
+      "x": 650,
+      "y": 550,
+      "width": 150,
+      "height": 80,
+      "text": "Inspector Registry",
+      "pv": {
+        "nodeType": "inspector-registry",
+        "references": ["src/ui/registries/InspectorViewRegistry.js"]
+      }
+    },
+    {
+      "id": "visualization-plugin-1",
+      "type": "text",
+      "x": 100,
+      "y": 750,
+      "width": 150,
+      "height": 80,
+      "text": "Plot Plugin",
+      "pv": {
+        "nodeType": "visualization-plugin",
+        "references": ["src/plugins/plot/"]
+      }
+    },
+    {
+      "id": "layout-plugin-1",
+      "type": "text",
+      "x": 250,
+      "y": 750,
+      "width": 150,
+      "height": 80,
+      "text": "Layout Plugin",
+      "pv": {
+        "nodeType": "layout-plugin",
+        "references": ["src/plugins/displayLayout/"]
+      }
+    },
+    {
+      "id": "telemetry-plugin-1",
+      "type": "text",
+      "x": 400,
+      "y": 750,
+      "width": 150,
+      "height": 80,
+      "text": "Time Conductor",
+      "pv": {
+        "nodeType": "telemetry-plugin",
+        "references": ["src/plugins/timeConductor/"]
+      }
+    },
+    {
+      "id": "action-plugin-1",
+      "type": "text",
+      "x": 550,
+      "y": 750,
+      "width": 150,
+      "height": 80,
+      "text": "Export/Import",
+      "pv": {
+        "nodeType": "action-plugin",
+        "references": ["src/plugins/exportAsJSONAction/"]
+      }
+    },
+    {
+      "id": "persistence-plugin-1",
+      "type": "text",
+      "x": 700,
+      "y": 750,
+      "width": 150,
+      "height": 80,
+      "text": "Persistence",
+      "pv": {
+        "nodeType": "persistence-plugin",
+        "references": ["src/plugins/persistence/"]
+      }
+    },
+    {
+      "id": "theme-plugin-1",
+      "type": "text",
+      "x": 850,
+      "y": 750,
+      "width": 150,
+      "height": 80,
+      "text": "Themes",
+      "pv": {
+        "nodeType": "theme-plugin",
+        "references": ["src/plugins/themes/"]
+      }
+    },
+    {
+      "id": "app-layout-1",
+      "type": "text",
+      "x": 900,
+      "y": 400,
+      "width": 150,
+      "height": 80,
+      "text": "App Layout",
+      "pv": {
+        "nodeType": "app-layout",
+        "references": ["src/ui/layout/AppLayout.vue"]
+      }
+    },
+    {
+      "id": "browse-bar-1",
+      "type": "text",
+      "x": 1050,
+      "y": 300,
+      "width": 150,
+      "height": 80,
+      "text": "Browse Bar",
+      "pv": {
+        "nodeType": "browse-bar",
+        "references": ["src/ui/layout/BrowseBar.vue"]
+      }
+    },
+    {
+      "id": "object-tree-1",
+      "type": "text",
+      "x": 1050,
+      "y": 400,
+      "width": 150,
+      "height": 80,
+      "text": "Object Tree",
+      "pv": {
+        "nodeType": "object-tree",
+        "references": ["src/ui/layout/MctTree.vue"]
+      }
+    },
+    {
+      "id": "router-1",
+      "type": "text",
+      "x": 1050,
+      "y": 500,
+      "width": 150,
+      "height": 80,
+      "text": "Router",
+      "pv": {
+        "nodeType": "router",
+        "references": ["src/ui/router/ApplicationRouter.js"]
+      }
+    },
+    {
+      "id": "selection-system-1",
+      "type": "text",
+      "x": 200,
+      "y": 50,
+      "width": 150,
+      "height": 80,
+      "text": "Selection System",
+      "pv": {
+        "nodeType": "selection-system",
+        "references": ["src/selection/"]
+      }
+    },
+    {
+      "id": "exporter-1",
+      "type": "text",
+      "x": 350,
+      "y": 50,
+      "width": 150,
+      "height": 80,
+      "text": "Exporters",
+      "pv": {
+        "nodeType": "exporter",
+        "references": ["src/exporters/"]
+      }
+    },
+    {
+      "id": "utilities-1",
+      "type": "text",
+      "x": 500,
+      "y": 50,
+      "width": 150,
+      "height": 80,
+      "text": "Utilities",
+      "pv": {
+        "nodeType": "utilities",
+        "references": ["src/utils/"]
+      }
+    },
+    {
+      "id": "vue-1",
+      "type": "text",
+      "x": 1250,
+      "y": 300,
+      "width": 150,
+      "height": 80,
+      "text": "Vue.js",
+      "pv": {
+        "nodeType": "vue"
+      }
+    },
+    {
+      "id": "d3-1",
+      "type": "text",
+      "x": 50,
+      "y": 900,
+      "width": 150,
+      "height": 80,
+      "text": "D3.js",
+      "pv": {
+        "nodeType": "d3"
+      }
+    },
+    {
+      "id": "eventemitter-1",
+      "type": "text",
+      "x": 650,
+      "y": 50,
+      "width": 150,
+      "height": 80,
+      "text": "EventEmitter3",
+      "pv": {
+        "nodeType": "eventemitter"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "mct-core-1",
+      "toNode": "object-api-1",
+      "fromSide": "left",
+      "toSide": "bottom",
+      "pv": {"edgeType": "provides"}
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "mct-core-1",
+      "toNode": "telemetry-api-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "provides"}
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "mct-core-1",
+      "toNode": "composition-api-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "provides"}
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "mct-core-1",
+      "toNode": "time-api-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "provides"}
+    },
+    {
+      "id": "edge-5",
+      "fromNode": "mct-core-1",
+      "toNode": "actions-api-1",
+      "fromSide": "right",
+      "toSide": "bottom",
+      "pv": {"edgeType": "provides"}
+    },
+    {
+      "id": "edge-6",
+      "fromNode": "mct-core-1",
+      "toNode": "view-registry-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "provides"}
+    },
+    {
+      "id": "edge-7",
+      "fromNode": "mct-core-1",
+      "toNode": "type-registry-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "provides"}
+    },
+    {
+      "id": "edge-8",
+      "fromNode": "mct-core-1",
+      "toNode": "toolbar-registry-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "provides"}
+    },
+    {
+      "id": "edge-9",
+      "fromNode": "mct-core-1",
+      "toNode": "inspector-registry-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "provides"}
+    },
+    {
+      "id": "edge-10",
+      "fromNode": "mct-core-1",
+      "toNode": "visualization-plugin-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "installs"}
+    },
+    {
+      "id": "edge-11",
+      "fromNode": "mct-core-1",
+      "toNode": "layout-plugin-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "installs"}
+    },
+    {
+      "id": "edge-12",
+      "fromNode": "mct-core-1",
+      "toNode": "telemetry-plugin-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "installs"}
+    },
+    {
+      "id": "edge-13",
+      "fromNode": "mct-core-1",
+      "toNode": "action-plugin-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "installs"}
+    },
+    {
+      "id": "edge-14",
+      "fromNode": "mct-core-1",
+      "toNode": "persistence-plugin-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "installs"}
+    },
+    {
+      "id": "edge-15",
+      "fromNode": "mct-core-1",
+      "toNode": "theme-plugin-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "installs"}
+    },
+    {
+      "id": "edge-16",
+      "fromNode": "visualization-plugin-1",
+      "toNode": "view-registry-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "registers-with"}
+    },
+    {
+      "id": "edge-17",
+      "fromNode": "layout-plugin-1",
+      "toNode": "view-registry-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "registers-with"}
+    },
+    {
+      "id": "edge-18",
+      "fromNode": "action-plugin-1",
+      "toNode": "actions-api-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "registers-with"}
+    },
+    {
+      "id": "edge-19",
+      "fromNode": "persistence-plugin-1",
+      "toNode": "object-api-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "registers-with"}
+    },
+    {
+      "id": "edge-20",
+      "fromNode": "telemetry-plugin-1",
+      "toNode": "telemetry-api-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "registers-with"}
+    },
+    {
+      "id": "edge-21",
+      "fromNode": "mct-core-1",
+      "toNode": "app-layout-1",
+      "fromSide": "right",
+      "toSide": "left",
+      "pv": {"edgeType": "contains"}
+    },
+    {
+      "id": "edge-22",
+      "fromNode": "app-layout-1",
+      "toNode": "browse-bar-1",
+      "fromSide": "top",
+      "toSide": "left",
+      "pv": {"edgeType": "contains"}
+    },
+    {
+      "id": "edge-23",
+      "fromNode": "app-layout-1",
+      "toNode": "object-tree-1",
+      "fromSide": "right",
+      "toSide": "left",
+      "pv": {"edgeType": "contains"}
+    },
+    {
+      "id": "edge-24",
+      "fromNode": "app-layout-1",
+      "toNode": "router-1",
+      "fromSide": "bottom",
+      "toSide": "left",
+      "pv": {"edgeType": "uses"}
+    },
+    {
+      "id": "edge-25",
+      "fromNode": "app-layout-1",
+      "toNode": "vue-1",
+      "fromSide": "right",
+      "toSide": "left",
+      "pv": {"edgeType": "uses"}
+    },
+    {
+      "id": "edge-26",
+      "fromNode": "app-layout-1",
+      "toNode": "object-api-1",
+      "fromSide": "left",
+      "toSide": "right",
+      "pv": {"edgeType": "uses"}
+    },
+    {
+      "id": "edge-27",
+      "fromNode": "app-layout-1",
+      "toNode": "composition-api-1",
+      "fromSide": "left",
+      "toSide": "right",
+      "pv": {"edgeType": "uses"}
+    },
+    {
+      "id": "edge-28",
+      "fromNode": "visualization-plugin-1",
+      "toNode": "d3-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "uses"}
+    },
+    {
+      "id": "edge-29",
+      "fromNode": "mct-core-1",
+      "toNode": "eventemitter-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "extends"}
+    },
+    {
+      "id": "edge-30",
+      "fromNode": "selection-system-1",
+      "toNode": "eventemitter-1",
+      "fromSide": "right",
+      "toSide": "left",
+      "pv": {"edgeType": "extends"}
+    },
+    {
+      "id": "edge-31",
+      "fromNode": "router-1",
+      "toNode": "eventemitter-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "extends"}
+    },
+    {
+      "id": "edge-32",
+      "fromNode": "mct-core-1",
+      "toNode": "selection-system-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "provides"}
+    },
+    {
+      "id": "edge-33",
+      "fromNode": "exporter-1",
+      "toNode": "object-api-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "uses"}
+    },
+    {
+      "id": "edge-34",
+      "fromNode": "app-layout-1",
+      "toNode": "utilities-1",
+      "fromSide": "left",
+      "toSide": "right",
+      "pv": {"edgeType": "uses"}
+    },
+    {
+      "id": "edge-35",
+      "fromNode": "visualization-plugin-1",
+      "toNode": "telemetry-api-1",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "pv": {"edgeType": "uses"}
+    },
+    {
+      "id": "edge-36",
+      "fromNode": "object-tree-1",
+      "toNode": "composition-api-1",
+      "fromSide": "left",
+      "toSide": "right",
+      "pv": {"edgeType": "uses"}
+    },
+    {
+      "id": "edge-37",
+      "fromNode": "browse-bar-1",
+      "toNode": "router-1",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "pv": {"edgeType": "uses"}
+    }
+  ]
+}

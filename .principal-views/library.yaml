@@ -1,0 +1,253 @@
+# Principal View Component Library
+version: "1.0.0"
+name: "OpenMCT Component Library"
+description: "Architecture component library for NASA's Open MCT (Mission Control Technologies)"
+
+# Service resource registry
+resources:
+  openmct-app:
+    service.name: "openmct"
+    service.version: "1.0.0"
+    deployment.environment: "development"
+
+nodeComponents:
+  # Core Framework
+  mct-core:
+    defaultLabel: "MCT Core"
+    description: "Main MCT class - application entry point and initialization"
+    color: "#FF6B6B"
+    icon: "Settings"
+
+  # API Layer Components
+  api-module:
+    defaultLabel: "API Module"
+    description: "Core API module providing extensibility points"
+    color: "#4ECDC4"
+    icon: "Plug"
+
+  object-api:
+    defaultLabel: "Object API"
+    description: "Domain object loading, saving, searching, and lifecycle management"
+    color: "#45B7D1"
+    icon: "Package"
+
+  telemetry-api:
+    defaultLabel: "Telemetry API"
+    description: "Telemetry data retrieval, metadata, and formatting"
+    color: "#45B7D1"
+    icon: "BarChart"
+
+  composition-api:
+    defaultLabel: "Composition API"
+    description: "Hierarchical object composition and relationships"
+    color: "#45B7D1"
+    icon: "Link"
+
+  time-api:
+    defaultLabel: "Time API"
+    description: "Time systems, bounds, clocks, and conductor"
+    color: "#45B7D1"
+    icon: "Clock"
+
+  actions-api:
+    defaultLabel: "Actions API"
+    description: "Context menus and user actions"
+    color: "#45B7D1"
+    icon: "Zap"
+
+  # Registry Components
+  registry:
+    defaultLabel: "Registry"
+    description: "Extensible registry for providers and components"
+    color: "#96CEB4"
+    icon: "ClipboardList"
+
+  view-registry:
+    defaultLabel: "View Registry"
+    description: "Manages object view providers"
+    color: "#88D8B0"
+    icon: "Eye"
+
+  type-registry:
+    defaultLabel: "Type Registry"
+    description: "Domain object type definitions"
+    color: "#88D8B0"
+    icon: "Tag"
+
+  toolbar-registry:
+    defaultLabel: "Toolbar Registry"
+    description: "Toolbar view providers"
+    color: "#88D8B0"
+    icon: "Wrench"
+
+  inspector-registry:
+    defaultLabel: "Inspector Registry"
+    description: "Inspector panel view providers"
+    color: "#88D8B0"
+    icon: "Search"
+
+  # Plugin System Components
+  plugin:
+    defaultLabel: "Plugin"
+    description: "Installable feature plugin"
+    color: "#FFA07A"
+    icon: "Puzzle"
+
+  visualization-plugin:
+    defaultLabel: "Visualization Plugin"
+    description: "Data visualization plugin (Plot, Table, Imagery, Gauge, etc.)"
+    color: "#FF8C69"
+    icon: "LineChart"
+
+  layout-plugin:
+    defaultLabel: "Layout Plugin"
+    description: "Layout and container plugin (DisplayLayout, FlexibleLayout, Tabs, etc.)"
+    color: "#FF8C69"
+    icon: "Layout"
+
+  telemetry-plugin:
+    defaultLabel: "Telemetry Plugin"
+    description: "Telemetry processing plugin (TimeConductor, Correlation, Mean, etc.)"
+    color: "#FF8C69"
+    icon: "Radio"
+
+  action-plugin:
+    defaultLabel: "Action Plugin"
+    description: "User action plugin (Export, Import, Move, Remove, etc.)"
+    color: "#FF8C69"
+    icon: "Command"
+
+  persistence-plugin:
+    defaultLabel: "Persistence Plugin"
+    description: "Data persistence adapter (CouchDB, LocalStorage, etc.)"
+    color: "#FF8C69"
+    icon: "Database"
+
+  system-plugin:
+    defaultLabel: "System Plugin"
+    description: "System-level plugin (FaultManagement, Condition, Timer, etc.)"
+    color: "#FF8C69"
+    icon: "Server"
+
+  theme-plugin:
+    defaultLabel: "Theme Plugin"
+    description: "Visual theme plugin (Darkmatter, Espresso, Snow)"
+    color: "#FF8C69"
+    icon: "Palette"
+
+  # UI Layer Components
+  ui-layer:
+    defaultLabel: "UI Layer"
+    description: "Vue-based user interface layer"
+    color: "#9B59B6"
+    icon: "Monitor"
+
+  app-layout:
+    defaultLabel: "App Layout"
+    description: "Main application shell and layout (AppLayout.vue)"
+    color: "#8E44AD"
+    icon: "Layout"
+
+  browse-bar:
+    defaultLabel: "Browse Bar"
+    description: "Top navigation bar"
+    color: "#8E44AD"
+    icon: "Navigation"
+
+  object-tree:
+    defaultLabel: "Object Tree"
+    description: "Left sidebar object tree navigation"
+    color: "#8E44AD"
+    icon: "TreePine"
+
+  ui-component:
+    defaultLabel: "UI Component"
+    description: "Reusable Vue UI component"
+    color: "#8E44AD"
+    icon: "Component"
+
+  router:
+    defaultLabel: "Router"
+    description: "Application routing system"
+    color: "#8E44AD"
+    icon: "Navigation"
+
+  # Utility Components
+  utilities:
+    defaultLabel: "Utilities"
+    description: "Shared utility functions and helpers"
+    color: "#F39C12"
+    icon: "Wrench"
+
+  selection-system:
+    defaultLabel: "Selection System"
+    description: "Centralized selection state management"
+    color: "#F39C12"
+    icon: "Hand"
+
+  exporter:
+    defaultLabel: "Exporter"
+    description: "Data export functionality (JSON, CSV, Image)"
+    color: "#F39C12"
+    icon: "Download"
+
+  # External Dependencies
+  external-lib:
+    defaultLabel: "External Library"
+    description: "Third-party library dependency"
+    color: "#95A5A6"
+    icon: "Book"
+
+  vue:
+    defaultLabel: "Vue.js"
+    description: "Frontend framework for UI components"
+    color: "#42B883"
+    icon: "Zap"
+
+  d3:
+    defaultLabel: "D3.js"
+    description: "Data visualization library"
+    color: "#F9A03C"
+    icon: "BarChart"
+
+  eventemitter:
+    defaultLabel: "EventEmitter3"
+    description: "Event system library"
+    color: "#7F8C8D"
+    icon: "Radio"
+
+edgeComponents:
+  extends:
+    label: "extends"
+    description: "Inheritance or extension relationship"
+    color: "#2C3E50"
+
+  uses:
+    label: "uses"
+    description: "Usage dependency"
+    color: "#34495E"
+
+  provides:
+    label: "provides"
+    description: "Provides functionality or service"
+    color: "#27AE60"
+
+  registers-with:
+    label: "registers with"
+    description: "Registers with a registry"
+    color: "#3498DB"
+
+  installs:
+    label: "installs"
+    description: "Installs or initializes"
+    color: "#E74C3C"
+
+  emits-to:
+    label: "emits to"
+    description: "Emits events to"
+    color: "#9B59B6"
+
+  contains:
+    label: "contains"
+    description: "Contains or composes"
+    color: "#16A085"
