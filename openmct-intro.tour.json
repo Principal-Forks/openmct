@@ -2,12 +2,16 @@
   "id": "openmct-introduction",
   "title": "Open MCT: Mission Control Framework",
   "description": "Discover how NASA's Open MCT builds extensible mission control interfaces through domain objects, telemetry, and a plugin architecture.",
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "audience": "New Contributors",
+  "prerequisites": [
+    "Familiarity with JavaScript and Vue basics"
+  ],
   "steps": [
     {
       "id": "welcome",
       "title": "Open MCT at a Glance",
-      "description": "Open MCT is NASA's extensible web framework for building mission control UIs. MCT.js is the heart - it wires together 15+ APIs (telemetry, time, objects) and a Vue-based UI into a single configurable application.",
+      "description": "Open MCT is NASA's extensible web framework for building mission control UIs. MCT.js is the heart — it wires together 15+ APIs (telemetry, time, objects) and a Vue-based UI into a single configurable application.",
       "focusDirectory": "src",
       "colorMode": "fileTypes",
       "highlightLayers": [
@@ -27,7 +31,7 @@
     {
       "id": "api-layer",
       "title": "The API Layer: Domain-Driven Design",
-      "description": "Each API encapsulates a core mission control concept. TelemetryAPI handles real-time data streams via WebSockets. ObjectAPI manages domain objects with persistence and search. TimeAPI controls time bounds, clocks, and conductor state.",
+      "description": "Each API owns a core mission control concept. TelemetryAPI streams real-time data via provider subscriptions. ObjectAPI persists domain objects by namespace. TimeAPI drives the time conductor — clocks, bounds, and modes used by every view.",
       "focusDirectory": "src/api",
       "colorMode": "fileTypes",
       "highlightLayers": [
@@ -50,7 +54,7 @@
           "items": [
             { "path": "src/api/actions", "type": "directory" },
             { "path": "src/api/composition", "type": "directory" },
-            { "path": "src/api/notifications", "type": "directory" }
+            { "path": "src/api/annotation", "type": "directory" }
           ],
           "opacity": 0.7,
           "renderStrategy": "border"
@@ -58,16 +62,16 @@
       ],
       "interactiveActions": [
         {
-          "type": "hover-directory",
-          "description": "Hover over telemetry to see real-time data handling",
-          "target": "src/api/telemetry"
+          "type": "click-file",
+          "description": "See how telemetry providers and formatters are registered",
+          "target": "src/api/telemetry/TelemetryAPI.js"
         }
       ]
     },
     {
       "id": "plugin-system",
       "title": "Plugin Architecture: 50+ Built-in Plugins",
-      "description": "Everything is a plugin - plots, tables, clocks, notebooks, gauges. plugins.js registers them all. Each plugin folder is self-contained with its own views, actions, and object types, making Open MCT endlessly extensible.",
+      "description": "Everything is a plugin — plots, tables, notebooks, gauges, imagery. plugins.js registers them all. Each folder is self-contained with its own views, actions, and object types, making Open MCT endlessly extensible.",
       "focusDirectory": "src/plugins",
       "colorMode": "fileTypes",
       "highlightLayers": [
@@ -95,12 +99,23 @@
           ],
           "opacity": 0.7,
           "renderStrategy": "border"
+        },
+        {
+          "id": "knowledge-plugins",
+          "name": "Knowledge Capture",
+          "color": "#f97316",
+          "items": [
+            { "path": "src/plugins/notebook", "type": "directory" },
+            { "path": "src/plugins/condition", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
         }
       ],
       "interactiveActions": [
         {
           "type": "click-file",
-          "description": "Click to see how plugins are registered",
+          "description": "See how all built-in plugins are registered",
           "target": "src/plugins/plugins.js"
         }
       ]
@@ -108,7 +123,7 @@
     {
       "id": "ui-layer",
       "title": "Vue-Powered UI Shell",
-      "description": "The UI layer provides the application shell - layout, routing, inspector panel, toolbar, and view registries. Browse.js handles navigation. Components are Vue-based with composables for shared logic like search and resize.",
+      "description": "The UI shell handles layout, routing, inspector, and toolbar. Browse.js in src/ui/router maps URL paths to domain object views. Components use Vue composables for shared concerns like search, resize, and selection state.",
       "focusDirectory": "src/ui",
       "colorMode": "fileTypes",
       "highlightLayers": [
@@ -134,12 +149,19 @@
           "opacity": 0.7,
           "renderStrategy": "border"
         }
+      ],
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "See how URL paths map to domain object views",
+          "target": "src/ui/router/Browse.js"
+        }
       ]
     },
     {
       "id": "testing-and-examples",
       "title": "Testing & Example Plugins",
-      "description": "The e2e/ directory has Playwright tests covering visual regression and accessibility. The example/ directory provides sample plugins (generators, imagery, fault sources) that serve as both dev tools and documentation for building your own plugins.",
+      "description": "e2e/ has Playwright tests covering visual regression and accessibility. example/ provides sample plugins — generators, imagery, fault sources — that serve as both dev tools and reference implementations for building your own plugins.",
       "focusDirectory": "",
       "colorMode": "fileTypes",
       "highlightLayers": [
@@ -156,7 +178,7 @@
         {
           "id": "examples",
           "name": "Example Plugins",
-          "color": "#f97316",
+          "color": "#a855f7",
           "items": [
             { "path": "example", "type": "directory" }
           ],
@@ -171,56 +193,12 @@
           "target": "example"
         }
       ]
-    },
-    {
-      "id": "summary",
-      "title": "Putting It All Together",
-      "description": "Open MCT's power comes from its layered architecture: MCT.js bootstraps the application, the API layer provides domain-driven services for telemetry, objects, and time, 50+ plugins deliver visualization and interaction capabilities, and the Vue UI shell ties it all together. To get started, explore the example plugins, check out the e2e tests for usage patterns, and refer to the API documentation for building your own extensions.",
-      "focusDirectory": "",
-      "colorMode": "fileTypes",
-      "highlightLayers": [
-        {
-          "id": "core",
-          "name": "Application Core",
-          "color": "#ef4444",
-          "items": [
-            { "path": "src/MCT.js", "type": "file" },
-            { "path": "openmct.js", "type": "file" }
-          ],
-          "opacity": 0.7,
-          "renderStrategy": "border"
-        },
-        {
-          "id": "apis",
-          "name": "API Layer",
-          "color": "#3b82f6",
-          "items": [
-            { "path": "src/api", "type": "directory" }
-          ],
-          "opacity": 0.7,
-          "renderStrategy": "border"
-        },
-        {
-          "id": "plugins",
-          "name": "Plugins",
-          "color": "#8b5cf6",
-          "items": [
-            { "path": "src/plugins", "type": "directory" }
-          ],
-          "opacity": 0.7,
-          "renderStrategy": "border"
-        },
-        {
-          "id": "ui",
-          "name": "UI Shell",
-          "color": "#06b6d4",
-          "items": [
-            { "path": "src/ui", "type": "directory" }
-          ],
-          "opacity": 0.7,
-          "renderStrategy": "border"
-        }
-      ]
     }
-  ]
+  ],
+  "metadata": {
+    "author": "FinnA13",
+    "createdAt": "2026-07-01",
+    "updatedAt": "2026-07-01",
+    "tags": ["onboarding", "architecture", "nasa", "mission-control"]
+  }
 }
